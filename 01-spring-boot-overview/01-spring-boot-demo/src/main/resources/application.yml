@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: SpringBootCourse_Section1
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+info:
+  app:
+    name: My cool app
+    description: A crazy fun app
+    version: 1.0.0
