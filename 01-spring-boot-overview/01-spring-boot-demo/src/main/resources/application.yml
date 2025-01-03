@@ -15,3 +15,11 @@ info:
     name: My cool app
     description: A crazy fun app
     version: 1.0.0
+
+coach.name: "John Johnson"
+team.name: "Johnsons"
+
+server:
+  port: 7070
+  servlet:
+    context-path: /springbootcourse-01
