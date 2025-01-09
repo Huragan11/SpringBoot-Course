@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: springcoredemo
+
+  main:
+    lazy-initialization: true
