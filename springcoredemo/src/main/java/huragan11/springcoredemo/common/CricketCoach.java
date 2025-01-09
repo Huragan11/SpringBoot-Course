@@ -1,16 +1,27 @@
 package huragan11.springcoredemo.common;
 
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class CricketCoach implements Coach{
 
     public CricketCoach() {
-        System.out.println("CricketCoach Constructor" + getClass().getSimpleName());
+        System.out.println("CricketCoach Constructor " + getClass().getSimpleName());
     }
+
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("CricketCoach PostConstruct " + getClass().getSimpleName());
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("CricketCoach PreDestroy " + getClass().getSimpleName());
+    }
+
+
 
     @Override
     public String getDailyWorkout() {

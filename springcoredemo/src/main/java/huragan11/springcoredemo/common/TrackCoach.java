@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class TrackCoach implements Coach{
 
     public TrackCoach() {
-        System.out.println("TrackCoach Constructor" + getClass().getSimpleName());
+        System.out.println("TrackCoach Constructor " + getClass().getSimpleName());
     }
 
     @Override

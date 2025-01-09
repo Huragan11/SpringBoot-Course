@@ -10,16 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
     private Coach myCoach;
-    private Coach anotherCoach;
+
 
     @Autowired
-    public DemoController(
-            @Qualifier("cricketCoach") Coach coach,
-            @Qualifier("cricketCoach") Coach anotherCoach
-            ){
-        System.out.println("DemoController Constructor" + getClass().getSimpleName());
+    public DemoController(@Qualifier("cricketCoach") Coach coach){
+        System.out.println("DemoController Constructor " + getClass().getSimpleName());
         myCoach = coach;
-        this.anotherCoach = anotherCoach;
+
     }
 
     @GetMapping("/dailyworkout")
@@ -27,10 +24,7 @@ public class DemoController {
         return myCoach.getDailyWorkout();
     }
 
-    @GetMapping("/check")
-    public String check(){
-        return ("is first coach the same as another coach: " + (myCoach == anotherCoach));
-    }
+
 
 
 }

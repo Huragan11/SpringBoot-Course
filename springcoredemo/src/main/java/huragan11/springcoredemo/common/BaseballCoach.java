@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class BaseballCoach implements Coach{
 
     public BaseballCoach() {
-        System.out.println("BaseballCoach Constructor" + getClass().getSimpleName());
+        System.out.println("BaseballCoach Constructor " + getClass().getSimpleName());
     }
 
     @Override
