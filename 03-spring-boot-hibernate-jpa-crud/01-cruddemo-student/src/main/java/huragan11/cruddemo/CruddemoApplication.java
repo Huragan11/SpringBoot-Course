@@ -20,10 +20,20 @@ public class CruddemoApplication {
     public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
         return runner -> {
 
-            updateStudent(studentDAO);
-
+            deleteAllStudents(studentDAO);
         };
 
+    }
+
+    private void deleteAllStudents(StudentDAO studentDAO) {
+        int rowsDeleted = studentDAO.deleteAll();
+
+        System.out.println(rowsDeleted);
+    }
+
+    private void deleteStudent(StudentDAO studentDAO) {
+        int studentId = 3;
+        studentDAO.delete(studentId);
     }
 
     private void updateStudent(StudentDAO studentDAO) {
