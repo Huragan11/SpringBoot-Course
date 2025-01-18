@@ -5,7 +5,16 @@ spring:
     password: springstudent
   main:
     banner-mode: off
+  jpa:
+    hibernate:
+      ddl-auto: update
 
 logging:
   level:
     root: warn
+    org:
+      hibernate:
+        sql: debug
+        orm:
+          jdbc:
+            bind: trace
