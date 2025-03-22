@@ -1,6 +1,5 @@
 package huragan11.cruddemo.rest;
 
-import huragan11.cruddemo.dao.EmployeeDAO;
 import huragan11.cruddemo.entity.Employee;
 import huragan11.cruddemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +44,13 @@ public class EmployeeRestController {
         Employee dbEmployee = employeeService.save(employee);
 
         return dbEmployee;
+    }
 
+    @PutMapping("/employees")
+    public Employee updateEmployee(@RequestBody Employee employee){
+        Employee dbEmployee = employeeService.save(employee);
+
+        return dbEmployee;
     }
 
 
