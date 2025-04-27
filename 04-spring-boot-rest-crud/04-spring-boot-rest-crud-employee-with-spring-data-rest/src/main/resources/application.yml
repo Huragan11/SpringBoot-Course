@@ -3,3 +3,8 @@ spring:
     url: "jdbc:mysql://localhost:3306/employee_directory"
     username: springstudent
     password: springstudent
+
+  data:
+    rest:
+      base-path: /rest-api
+      default-page-size: 20
