@@ -89,7 +89,6 @@ public class EmployeeRestController {
     }
 
 
-
     private Employee apply(Map<String, Object> patchPayload, Employee tempEmployee) {
 
         ObjectNode employeeNode = objectMapper.convertValue(tempEmployee, ObjectNode.class);
