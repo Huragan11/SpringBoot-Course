@@ -3,3 +3,9 @@ spring:
     url: "jdbc:mysql://localhost:3306/employee_directory"
     username: springstudent
     password: springstudent
+
+springdoc:
+  swagger-ui:
+    path: /my-ui.html
+  api-docs:
+    path: /my-api-docs
