@@ -1,6 +1,6 @@
-package com.luv2code.springboot.cruddemo.service;
+package huragan11.cruddemo.service;
 
-import com.luv2code.springboot.cruddemo.entity.Employee;
+import huragan11.cruddemo.entity.Employee;
 
 import java.util.List;
 
