@@ -5,13 +5,11 @@ public class Student {
     private String firstName;
     private String lastName;
     private String country;
-
+    private String favLanguage;
 
     public Student() {
 
     }
-
-
 
     public String getFirstName() {
         return firstName;
@@ -35,5 +33,13 @@ public class Student {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getFavLanguage() {
+        return favLanguage;
+    }
+
+    public void setFavLanguage(String favLanguage) {
+        this.favLanguage = favLanguage;
     }
 }
