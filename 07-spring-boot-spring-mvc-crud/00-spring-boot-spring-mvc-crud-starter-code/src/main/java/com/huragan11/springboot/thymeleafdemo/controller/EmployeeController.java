@@ -23,8 +23,17 @@ public class EmployeeController {
     public String listEmployees(Model model) {
         List<Employee> employees = employeeService.findAll();
         model.addAttribute("employees", employees);
-        return "list-employees";
+        return "employees/list-employees";
     }
+
+    @GetMapping("/showFromForAdd")
+    public String showFromForAdd(Model model) {
+
+        Employee employee = new Employee();
+        model.addAttribute("employee", employee);
+        return "employees/employee-form";
+    }
+
 }
 
 
