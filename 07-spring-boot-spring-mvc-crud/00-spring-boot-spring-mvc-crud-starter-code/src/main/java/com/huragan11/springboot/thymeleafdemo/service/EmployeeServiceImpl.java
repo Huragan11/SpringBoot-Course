@@ -1,7 +1,7 @@
-package com.huragan11.springboot.cruddemo.service;
+package com.huragan11.springboot.thymeleafdemo.service;
 
-import com.huragan11.springboot.cruddemo.dao.EmployeeRepository;
-import com.huragan11.springboot.cruddemo.entity.Employee;
+import com.huragan11.springboot.thymeleafdemo.dao.EmployeeRepository;
+import com.huragan11.springboot.thymeleafdemo.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

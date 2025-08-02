@@ -1,7 +1,7 @@
-package com.huragan11.springboot.cruddemo.controller;
+package com.huragan11.springboot.thymeleafdemo.controller;
 
-import com.huragan11.springboot.cruddemo.entity.Employee;
-import com.huragan11.springboot.cruddemo.service.EmployeeService;
+import com.huragan11.springboot.thymeleafdemo.entity.Employee;
+import com.huragan11.springboot.thymeleafdemo.service.EmployeeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

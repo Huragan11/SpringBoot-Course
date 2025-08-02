@@ -1,6 +1,6 @@
-package com.huragan11.springboot.cruddemo.service;
+package com.huragan11.springboot.thymeleafdemo.service;
 
-import com.huragan11.springboot.cruddemo.entity.Employee;
+import com.huragan11.springboot.thymeleafdemo.entity.Employee;
 
 import java.util.List;
 
