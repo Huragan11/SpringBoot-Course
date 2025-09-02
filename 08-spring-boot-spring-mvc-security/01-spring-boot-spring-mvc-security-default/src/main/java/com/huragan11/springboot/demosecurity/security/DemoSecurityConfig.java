@@ -40,7 +40,9 @@ public class DemoSecurityConfig {
 
         http.authorizeHttpRequests(configurer ->
                         configurer.anyRequest().authenticated())
-                .formLogin(form -> form.loginPage("/loginPage").loginProcessingUrl("/authenticateTheUser").permitAll());
+                .formLogin(form -> form.loginPage("/loginPage").loginProcessingUrl("/authenticateTheUser").permitAll())
+                .logout(logout -> logout.permitAll());
+
 
         return http.build();
     }
