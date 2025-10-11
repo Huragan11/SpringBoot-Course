@@ -8,5 +8,5 @@ public interface AppDAO {
 
     Instructor findInstructorById(int Id);
 
-
+    void deleteInstructorById(int Id);
 }
