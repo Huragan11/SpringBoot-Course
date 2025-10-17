@@ -1,6 +1,7 @@
 package com.huragan11.cruddemo;
 
 import com.huragan11.cruddemo.dao.AppDAO;
+import com.huragan11.cruddemo.entity.Course;
 import com.huragan11.cruddemo.entity.Instructor;
 import com.huragan11.cruddemo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -22,9 +23,29 @@ public class CruddemoApplication {
 //            findInstructor(appDAO);
 //            deleteInstructor(appDAO);
 //            findInstructorDetail(appDAO);
-            deleteInstructorDetail(appDAO);
+//            deleteInstructorDetail(appDAO);
 
+            createInstructorWithCourses(appDAO);
         };
+    }
+
+    private void createInstructorWithCourses(AppDAO appDAO) {
+        Instructor tempInstructor = new Instructor("Susan", "Public", "yt@gmail.com");
+
+        InstructorDetail tempInstructorDetail = new InstructorDetail("video games", "link");
+
+        tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+        Course course1 = new Course("Piano Course");
+        Course course2 = new Course("Violin Course");
+
+        tempInstructor.add(course1);
+        tempInstructor.add(course2);
+
+        System.out.println(tempInstructor);
+        System.out.println(tempInstructor.getCourses());
+
+        appDAO.save(tempInstructor);
     }
 
     private void deleteInstructorDetail(AppDAO appDAO) {
