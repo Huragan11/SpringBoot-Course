@@ -4,6 +4,7 @@ import com.huragan11.cruddemo.entity.Course;
 import com.huragan11.cruddemo.entity.Instructor;
 import com.huragan11.cruddemo.entity.InstructorDetail;
 
+import java.time.chrono.MinguoDate;
 import java.util.List;
 
 public interface AppDAO {
@@ -29,5 +30,9 @@ public interface AppDAO {
     Course findCourseById(int id);
 
     void deleteCourseById(int Id);
+
+    void saveCourse(Course theCourse);
+
+    Course findCourseAndReviewsByCourseId(int id);
 
 }
