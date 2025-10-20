@@ -3,6 +3,7 @@ package com.huragan11.cruddemo.dao;
 import com.huragan11.cruddemo.entity.Course;
 import com.huragan11.cruddemo.entity.Instructor;
 import com.huragan11.cruddemo.entity.InstructorDetail;
+import com.huragan11.cruddemo.entity.Student;
 
 import java.time.chrono.MinguoDate;
 import java.util.List;
@@ -34,5 +35,9 @@ public interface AppDAO {
     void saveCourse(Course theCourse);
 
     Course findCourseAndReviewsByCourseId(int id);
+
+    Course findCourseAndStudentsByCourseId(int id);
+
+    Student findStudentAndCoursesByStudentId(int Id);
 
 }

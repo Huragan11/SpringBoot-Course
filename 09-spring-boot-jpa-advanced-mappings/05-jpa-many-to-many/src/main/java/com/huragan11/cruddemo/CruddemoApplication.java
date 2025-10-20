@@ -1,10 +1,7 @@
 package com.huragan11.cruddemo;
 
 import com.huragan11.cruddemo.dao.AppDAO;
-import com.huragan11.cruddemo.entity.Course;
-import com.huragan11.cruddemo.entity.Instructor;
-import com.huragan11.cruddemo.entity.InstructorDetail;
-import com.huragan11.cruddemo.entity.Review;
+import com.huragan11.cruddemo.entity.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,10 +17,42 @@ public class CruddemoApplication {
     @Bean
     public CommandLineRunner commandLineRunner(AppDAO appDAO) {
         return runner -> {
-//        createCourseAndReviews(appDAO);
-//            retrieveCourseAndReviews(appDAO);
-            deleteCourseAndReviews(appDAO);
+//        createCourseAndStudents(appDAO);
+//        findCourseAndStudents(appDAO);
+            findStudentAndCourses(appDAO);
+
         };
+
+    }
+
+    private void findStudentAndCourses(AppDAO appDAO) {
+        int id = 2;
+        Student student = appDAO.findStudentAndCoursesByStudentId(id);
+        System.out.println(student);
+        System.out.println(student.getCourses());
+
+    }
+
+    private void findCourseAndStudents(AppDAO appDAO) {
+
+        int id = 10;
+
+        Course tempCourse = appDAO.findCourseAndStudentsByCourseId(id);
+        System.out.println("Loaded course: " + tempCourse);
+        System.out.println("Loaded students: " + tempCourse.getStudents());
+    }
+
+    private void createCourseAndStudents(AppDAO appDAO) {
+        Course tempCourse = new Course("test course");
+
+        Student student1 = new Student("first name", "last name", "email");
+        Student student2 = new Student("first name1", "last name1", "email1");
+
+        tempCourse.addStudent(student1);
+        tempCourse.addStudent(student2);
+
+        appDAO.saveCourse(tempCourse);
+
     }
 
     private void deleteCourseAndReviews(AppDAO appDAO) {

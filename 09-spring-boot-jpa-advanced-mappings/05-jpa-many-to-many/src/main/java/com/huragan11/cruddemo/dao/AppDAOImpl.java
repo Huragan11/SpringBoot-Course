@@ -3,6 +3,7 @@ package com.huragan11.cruddemo.dao;
 import com.huragan11.cruddemo.entity.Course;
 import com.huragan11.cruddemo.entity.Instructor;
 import com.huragan11.cruddemo.entity.InstructorDetail;
+import com.huragan11.cruddemo.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
@@ -60,6 +61,24 @@ public class AppDAOImpl implements AppDAO {
     public Course findCourseAndReviewsByCourseId(int id) {
         TypedQuery<Course> query = entityManager.createQuery("select c from Course c join fetch c.reviews where c.id = :id", Course.class);
         query.setParameter("id", id);
+        return query.getSingleResult();
+    }
+
+    @Override
+    public Course findCourseAndStudentsByCourseId(int id) {
+        TypedQuery<Course> query = entityManager.createQuery("select c from Course c join fetch c.students where c.id = :id", Course.class);
+        query.setParameter("id", id);
+
+        Course course = query.getSingleResult();
+
+        return course;
+    }
+
+    @Override
+    public Student findStudentAndCoursesByStudentId(int Id) {
+        TypedQuery<Student> query = entityManager.createQuery("select s from Student s join fetch s.courses where s.id = :id", Student.class);
+        query.setParameter("id", Id);
+
         return query.getSingleResult();
     }
 
