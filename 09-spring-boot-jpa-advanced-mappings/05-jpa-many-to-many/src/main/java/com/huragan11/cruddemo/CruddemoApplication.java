@@ -19,10 +19,29 @@ public class CruddemoApplication {
         return runner -> {
 //        createCourseAndStudents(appDAO);
 //        findCourseAndStudents(appDAO);
-            findStudentAndCourses(appDAO);
-
+//            findStudentAndCourses(appDAO);
+//            addMoreCoursesForStudent(appDAO);
+//            deleteCourse(appDAO);
+            deleteStudent(appDAO);
         };
+    }
 
+    private void deleteStudent(AppDAO appDAO) {
+        int id = 2;
+        appDAO.deleteStudentById(id);
+    }
+
+    private void addMoreCoursesForStudent(AppDAO appDAO) {
+        int id = 2;
+        Student student = appDAO.findStudentAndCoursesByStudentId(id);
+
+        Course tempCourse = new Course("new course 1");
+        Course tempCourse1 = new Course("new course 2");
+
+        student.addCourse(tempCourse);
+        student.addCourse(tempCourse1);
+
+        appDAO.updateStudent(student);
     }
 
     private void findStudentAndCourses(AppDAO appDAO) {

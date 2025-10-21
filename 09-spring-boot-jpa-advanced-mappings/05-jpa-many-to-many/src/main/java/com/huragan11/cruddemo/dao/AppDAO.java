@@ -40,4 +40,8 @@ public interface AppDAO {
 
     Student findStudentAndCoursesByStudentId(int Id);
 
+    void updateStudent(Student theStudent);
+
+    void deleteStudentById(int Id);
+
 }
