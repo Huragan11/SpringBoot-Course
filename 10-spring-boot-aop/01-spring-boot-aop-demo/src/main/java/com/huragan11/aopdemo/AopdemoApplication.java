@@ -1,6 +1,8 @@
 package com.huragan11.aopdemo;
 
 import com.huragan11.aopdemo.dao.AccountDAO;
+import com.huragan11.aopdemo.dao.MembershipDAO;
+import com.huragan11.aopdemo.dao.MembershipDAOImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,14 +16,17 @@ public class AopdemoApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(AccountDAO accountDAO) {
+    public CommandLineRunner commandLineRunner(AccountDAO accountDAO, MembershipDAO membershipDAO) {
         return runner -> {
-            demoTheBeforeAdvice(accountDAO);
+            demoTheBeforeAdvice(accountDAO, membershipDAO);
         };
     }
 
-    private void demoTheBeforeAdvice(AccountDAO accountDAO) {
+    private void demoTheBeforeAdvice(AccountDAO accountDAO, MembershipDAO membershipDAO) {
         accountDAO.addAccount();
-        accountDAO.addAccount();
+
+        membershipDAO.addAccount();
+
+        membershipDAO.addAnything();
     }
 }
