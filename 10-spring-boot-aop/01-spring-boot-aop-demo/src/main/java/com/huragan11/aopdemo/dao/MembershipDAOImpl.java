@@ -13,4 +13,9 @@ public class MembershipDAOImpl implements  MembershipDAO {
     public boolean addAnything() {
         return true;
     }
+
+    @Override
+    public void goToSleep() {
+        System.out.println(getClass());
+    }
 }
