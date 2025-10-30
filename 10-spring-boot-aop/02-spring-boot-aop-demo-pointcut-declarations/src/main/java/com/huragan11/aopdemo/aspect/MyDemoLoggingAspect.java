@@ -12,12 +12,21 @@ public class MyDemoLoggingAspect {
     @Pointcut("execution(* com.huragan11.aopdemo.dao.*.*(..))")
     private void forDaoPackage(){}
 
-    @Before("forDaoPackage()")
+    @Pointcut("execution(* com.huragan11.aopdemo.dao.*.get*(..))")
+    private void getter(){}
+    @Pointcut("execution(* com.huragan11.aopdemo.dao.*.set*(..))")
+    private void setter(){}
+
+
+    @Pointcut("forDaoPackage() && !(getter() || setter())")
+    private void forDaoPackageNoGetterSetter() {}
+
+    @Before("forDaoPackageNoGetterSetter()")
     public void beforeAddAccount() {
         System.out.println("\n =====>>>>> Executing @Before advice");
     }
 
-    @Before("forDaoPackage()")
+    @Before("forDaoPackageNoGetterSetter()")
     public void performApiAnalytics(){
         System.out.println("\n =====>>>>> Performing API Analytics");
     }

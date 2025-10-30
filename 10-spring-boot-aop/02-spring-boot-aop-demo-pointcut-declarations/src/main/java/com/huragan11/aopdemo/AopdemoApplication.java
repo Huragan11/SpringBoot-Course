@@ -2,7 +2,6 @@ package com.huragan11.aopdemo;
 
 import com.huragan11.aopdemo.dao.AccountDAO;
 import com.huragan11.aopdemo.dao.MembershipDAO;
-import com.huragan11.aopdemo.dao.MembershipDAOImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,6 +25,12 @@ public class AopdemoApplication {
         Account account = new Account();
         accountDAO.addAccount(account, true);
         accountDAO.doWork();
+
+        accountDAO.setName("adad");
+        accountDAO.setServiceCode("adaddd");
+
+        String name = accountDAO.getName();
+        String code = accountDAO.getServiceCode();
 
         membershipDAO.addAccount();
         membershipDAO.goToSleep();
