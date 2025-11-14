@@ -2,6 +2,7 @@ package com.huragan11.aopdemo;
 
 import com.huragan11.aopdemo.dao.AccountDAO;
 import com.huragan11.aopdemo.dao.MembershipDAO;
+import com.huragan11.aopdemo.service.TrafficFortuneService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,16 +18,38 @@ public class AopdemoApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(AccountDAO accountDAO, MembershipDAO membershipDAO) {
+    public CommandLineRunner commandLineRunner(AccountDAO accountDAO, MembershipDAO membershipDAO, TrafficFortuneService trafficFortuneService) {
         return runner -> {
 //            demoTheBeforeAdvice(accountDAO, membershipDAO);
 //        demoAfterReturnAdvice(accountDAO);
 //            demoTheAfterThrowingAdvice(accountDAO);
-        demoTheAfterAdvice(accountDAO);
+//        demoTheAfterAdvice(accountDAO);
+//            demoTheAroundAdvice(trafficFortuneService);
+//            demoTheAroundAdviceHandleException(trafficFortuneService);
+            demoTheAroundAdviceRethrowException(trafficFortuneService);
 
         };
 
 
+    }
+
+    private void demoTheAroundAdviceRethrowException(TrafficFortuneService trafficFortuneService) {
+        System.out.println("demoTheAroundAdviceRethrowException");
+        boolean tripWire = true;
+        String data = trafficFortuneService.getFortune(tripWire);
+        System.out.println(data);
+    }
+
+    private void demoTheAroundAdviceHandleException(TrafficFortuneService trafficFortuneService) {
+        System.out.println("demoTheAroundAdviceHandleException");
+        boolean tripWire = true;
+        String data = trafficFortuneService.getFortune(tripWire);
+        System.out.println(data);
+    }
+
+    private void demoTheAroundAdvice(TrafficFortuneService trafficFortuneService) {
+        System.out.println("demoTheAroundAdvice");
+        System.out.println(trafficFortuneService.getFortune());
     }
 
     private void demoTheAfterAdvice(AccountDAO accountDAO) {
