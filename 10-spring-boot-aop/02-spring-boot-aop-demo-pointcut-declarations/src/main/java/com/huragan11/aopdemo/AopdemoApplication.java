@@ -21,10 +21,24 @@ public class AopdemoApplication {
         return runner -> {
 //            demoTheBeforeAdvice(accountDAO, membershipDAO);
 //        demoAfterReturnAdvice(accountDAO);
-            demoTheAfterThrowingAdvice(accountDAO);
+//            demoTheAfterThrowingAdvice(accountDAO);
+        demoTheAfterAdvice(accountDAO);
+
         };
 
 
+    }
+
+    private void demoTheAfterAdvice(AccountDAO accountDAO) {
+        List<Account> theAccounts = null;
+
+        try {
+            theAccounts = accountDAO.findAccounts(false);
+        } catch (Exception ex) {
+            System.out.println("EXCEPTION! ");
+        }
+        System.out.println("After Return Advice");
+        System.out.println(theAccounts);
     }
 
     private void demoTheAfterThrowingAdvice(AccountDAO accountDAO) {
