@@ -1,14 +1,14 @@
-package com.luv2code.springboot.thymeleafdemo.controller;
+package com.huragan11.springboot.thymeleafdemo.controller;
 
 import java.util.List;
 
-import com.luv2code.springboot.thymeleafdemo.service.EmployeeService;
+import com.huragan11.springboot.thymeleafdemo.service.EmployeeService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.luv2code.springboot.thymeleafdemo.entity.Employee;
+import com.huragan11.springboot.thymeleafdemo.entity.Employee;
 
 @Controller
 @RequestMapping("/employees")
