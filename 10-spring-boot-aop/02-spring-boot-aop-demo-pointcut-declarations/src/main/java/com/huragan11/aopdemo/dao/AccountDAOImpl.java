@@ -14,14 +14,7 @@ public class AccountDAOImpl implements AccountDAO {
 
     @Override
     public List<Account> findAccounts() {
-        List<Account> myAccounts = new ArrayList<>();
-        Account temp1 = new Account("John", "Silver");
-        Account temp2 = new Account("James", "Platinum");
-        Account temp3 = new Account("Jim", "Gold");
-        myAccounts.add(temp1);
-        myAccounts.add(temp2);
-        myAccounts.add(temp3);
-        return myAccounts;
+        return findAccounts(false);
     }
 
     @Override
@@ -53,5 +46,20 @@ public class AccountDAOImpl implements AccountDAO {
     public void setServiceCode(String serviceCode) {
         System.out.println("setServiceCode");
         this.serviceCode = serviceCode;
+    }
+
+    @Override
+    public List<Account> findAccounts(boolean tripWire) {
+        if (tripWire) {
+            throw new RuntimeException("TRIP WIRE!");
+        }
+        List<Account> myAccounts = new ArrayList<>();
+        Account temp1 = new Account("John", "Silver");
+        Account temp2 = new Account("James", "Platinum");
+        Account temp3 = new Account("Jim", "Gold");
+        myAccounts.add(temp1);
+        myAccounts.add(temp2);
+        myAccounts.add(temp3);
+        return myAccounts;
     }
 }
